@@ -116,8 +116,11 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           TAG="v${{ steps.next_version.outputs.value }}"
-          gh release create "$TAG" \
-            --title "Repos $TAG" \
-            --generate-notes \
-            --skip-if-release-exists \
-            "${{ env.ARTIFACT }}"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "Release $TAG already exists, skipping."
+          else
+            gh release create "$TAG" \
+              --title "Repos $TAG" \
+              --generate-notes \
+              "${{ env.ARTIFACT }}"
+          fi
