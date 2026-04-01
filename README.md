@@ -5,6 +5,12 @@
 Git Repos Next Workflow for Alfred
 ===================================
 
+> **Note:** This repository is forked from [deanishe/alfred-repos](https://github.com/deanishe/alfred-repos).
+
+[![GitHub Version][shield-version]][gh-releases]
+[![GitHub All Releases][shield-downloads]][gh-releases]
+[![GitHub][shield-license]][license-mit]
+
 Browse, search and open Git repositories from within Alfred.
 
 ![][demo]
@@ -74,26 +80,26 @@ This is my `settings.json`:
   "app_alt": "iTerm",
   "app_cmd": "Finder",
   "app_cmd_alt": [
-    "VSCodium", 
-    "Finder", 
-    "SourceTree", 
+    "VSCodium",
+    "Finder",
+    "SourceTree",
     "iTerm"
   ],
-  "app_ctrl": "SourceTree", 
-  "app_default": "VSCodium", 
-  "app_shift": "Browser", 
-  "global_exclude_patterns": [], 
+  "app_ctrl": "SourceTree",
+  "app_default": "VSCodium",
+  "app_shift": "Browser",
+  "global_exclude_patterns": [],
   "search_dirs": [
     {
-      "depth": 3, 
+      "depth": 3,
       "path": "~/Code"
-    }, 
+    },
     {
       "path": "~/Sites"
     },
     {
       "path": "~/src/git.deanishe.net/deanishe"
-    }, 
+    },
     {
       "path": "~/src/github.com/deanishe"
     }
