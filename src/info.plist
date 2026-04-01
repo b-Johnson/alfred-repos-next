@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>net.deanishe.alfred-git-repos</string>
+	<string>net.xnet.alfred-git-repos-next</string>
 	<key>connections</key>
 	<dict>
 		<key>13C4EEDF-EC8D-4B23-8693-6E050109AFDC</key>
@@ -86,13 +86,13 @@
 		</array>
 	</dict>
 	<key>createdby</key>
-	<string>Dean Jackson</string>
+	<string>Brian Johnson</string>
 	<key>description</key>
 	<string>Find and browse Git repositories</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Git Repos</string>
+	<string>Git Repos Next</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -123,7 +123,7 @@
 				<key>runningsubtext</key>
 				<string>Loading list of repos…</string>
 				<key>script</key>
-				<string>/usr/bin/python repos.py search "$1"</string>
+				<string>python3 repos.py search "$1"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -131,7 +131,7 @@
 				<key>subtext</key>
 				<string>View, Filter, Open Your Git Repositories</string>
 				<key>title</key>
-				<string>Git Repos</string>
+				<string>Git Repos Next</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -173,7 +173,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>/usr/bin/python repos.py open $appkey "$1"</string>
+				<string>python3 repos.py open $appkey "$1"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -215,7 +215,7 @@ variables={allvars}</string>
 				<key>escaping</key>
 				<integer>127</integer>
 				<key>script</key>
-				<string>/usr/bin/python repos.py settings</string>
+				<string>python3 repos.py settings</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -324,7 +324,7 @@ variables={allvars}</string>
 				<key>escaping</key>
 				<integer>127</integer>
 				<key>script</key>
-				<string>/usr/bin/python repos.py update</string>
+				<string>python3 repos.py update</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -458,8 +458,8 @@ Use the `reposhelp` command to see the help file.</string>
 		<string>180</string>
 	</dict>
 	<key>version</key>
-	<string>3.1.2</string>
+	<string>1.0</string>
 	<key>webaddress</key>
-	<string>https://github.com/deanishe/alfred-repos</string>
+	<string>https://github.com/brianjohnson/alfred-repos-next</string>
 </dict>
 </plist>

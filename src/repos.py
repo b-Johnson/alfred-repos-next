@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # encoding: utf-8
 #
 # Copyright (c) 2013 deanishe@deanishe.net.
@@ -22,8 +22,6 @@ Options:
 
 """
 
-from __future__ import print_function
-
 from collections import namedtuple
 import os
 import re
@@ -31,19 +29,18 @@ import subprocess
 import sys
 import time
 
-from workflow import Workflow3, ICON_WARNING, ICON_INFO
+from workflow import Workflow, ICON_WARNING, ICON_INFO
 from workflow.background import is_running, run_in_background
-from workflow.update import Version
 
 
 # How often to check for new/updated repos
 DEFAULT_UPDATE_INTERVAL = 180  # minutes
 
 # GitHub repo for self-updating
-UPDATE_SETTINGS = {'github_slug': 'deanishe/alfred-repos'}
+UPDATE_SETTINGS = {'github_slug': 'brianjohnson/alfred-repos-next'}
 
 # GitHub Issues
-HELP_URL = 'https://github.com/deanishe/alfred-repos/issues'
+HELP_URL = 'https://github.com/brianjohnson/alfred-repos-next/issues'
 
 # Icon shown if a newer version is available
 ICON_UPDATE = 'update-available.png'
@@ -95,29 +92,6 @@ class AttrDict(dict):
         self.__dict__ = self
 
 
-def migrate_v1_config():
-    """Replace v1 format in settings with v2 format.
-
-    Change numbered apps to named apps.
-    """
-    log.debug('migrating v1 config to v2 ...')
-    newkeys = {
-        '1': 'default',
-        '2': 'cmd',
-        '3': 'alt',
-        '4': 'ctrl',
-        '5': 'shift',
-        '6': 'fn',
-    }
-    for k, nk in newkeys.items():
-        wf.settings['app_' + nk] = wf.settings.get('app_' + k)
-        try:
-            del wf.settings['app_' + k]
-            log.debug('changed `app_%s` to `app_%s`', k, nk)
-        except KeyError:
-            pass
-
-
 def is_defaults(d):
     """Return ``True`` if settings are do-nothing defaults.
 
@@ -142,12 +116,12 @@ def settings_updated():
 
 
 def join_english(items):
-    """Join a list of unicode objects with commas and/or 'and'."""
-    if isinstance(items, unicode):
+    """Join a list of str objects with commas and/or 'and'."""
+    if isinstance(items, str):
         return items
 
     if len(items) == 1:
-        return unicode(items[0])
+        return str(items[0])
 
     elif len(items) == 2:
         return u' and '.join(items)
@@ -201,7 +175,7 @@ def get_repos(opts):
         return []
 
     # Check if cached data is old version
-    if isinstance(repos[0], basestring):
+    if isinstance(repos[0], str):
         do_update()
         return []
 
@@ -219,7 +193,7 @@ def repo_url(path):
 
     """
     url = subprocess.check_output(['git', 'config', 'remote.origin.url'],
-                                  cwd=path)
+                                  cwd=path, text=True)
     url = re.sub(r'(^.+@)|(^https://)|(^git://)|(.git$)', '', url)
     return 'https://' + re.sub(r':', '/', url).strip()
 
@@ -280,7 +254,7 @@ def do_update():
         int: Exit status.
 
     """
-    run_in_background('update', ['/usr/bin/python', 'update.py'])
+    run_in_background('update', [sys.executable, 'update.py'])
     return 0
 
 
@@ -377,10 +351,6 @@ def parse_args():
 
 def main(wf):
     """Run the workflow."""
-    # Update settings format
-    if wf.last_version_run and wf.last_version_run < Version('2'):
-        migrate_v1_config()
-
     opts = parse_args()
 
     # Alternate actions
@@ -446,7 +416,7 @@ def main(wf):
 
 
 if __name__ == '__main__':
-    wf = Workflow3(default_settings=DEFAULT_SETTINGS,
+    wf = Workflow(default_settings=DEFAULT_SETTINGS,
                    update_settings=UPDATE_SETTINGS,
                    help_url=HELP_URL)
     log = wf.logger

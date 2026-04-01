@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # encoding: utf-8
 #
 # Copyright (c) 2014 deanishe@deanishe.net
@@ -12,8 +12,6 @@
 Uses settings from the workflow's `settings.json` file.
 """
 
-from __future__ import print_function, unicode_literals
-
 import sys
 import os
 import subprocess
@@ -21,8 +19,7 @@ from fnmatch import fnmatch
 from time import time
 from multiprocessing.dummy import Pool
 
-from workflow import Workflow3
-from workflow.util import utf8ify
+from workflow import Workflow
 
 from repos import Repo
 
@@ -36,7 +33,6 @@ DEFAULT_DEPTH = 2
 
 # Will be populated later
 log = None
-decode = None
 
 
 def find_git_repos(dirpath, excludes, depth, uid, gids, name_for_parent=1):
@@ -86,14 +82,13 @@ def find_git_repos(dirpath, excludes, depth, uid, gids, name_for_parent=1):
     cmd.append(')')
 
     cmd += ['-name', '.git', '-print']
-    cmd = [utf8ify(s) for s in cmd]
     try:
-        output = subprocess.check_output(cmd)
+        output = subprocess.check_output(cmd, text=True)
     except Exception as err:
         log.exception('failed: %r', err)
         raise err
 
-    output = [os.path.dirname(s.strip()) for s in decode(output).split('\n')
+    output = [os.path.dirname(s.strip()) for s in output.split('\n')
               if s.strip()]
 
     results = []
@@ -182,7 +177,6 @@ def main(wf):
 
 
 if __name__ == '__main__':
-    wf = Workflow3()
+    wf = Workflow()
     log = wf.logger
-    decode = wf.decode
     sys.exit(wf.run(main))

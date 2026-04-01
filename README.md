@@ -2,8 +2,8 @@
   <img src="./src/icon.png" width="128" height="128">
 </h1>
 
-Git Repos Workflow for Alfred
-=============================
+Git Repos Next Workflow for Alfred
+===================================
 
 Browse, search and open Git repositories from within Alfred.
 
@@ -14,10 +14,6 @@ Download
 --------
 
 Get the workflow from [GitHub releases][gh-releases].
-
-**Versions 2.2+ are not compatible with Alfred 3 and earlier.**
-
-For Alfred 3, download [version 2.1.2][v2.1.2], and for Alfred 2, please download [version 1.7][v1.7].
 
 
 Usage
@@ -176,12 +172,9 @@ The icon is by [Jason Long][jlong], from [git-scm.com][git], released under the 
 
 [aw]: https://github.com/deanishe/alfred-workflow
 [cc]: http://creativecommons.org/licenses/by/3.0/
-[demo]: https://raw.githubusercontent.com/deanishe/alfred-repos/master/demo.gif
+[demo]: https://raw.githubusercontent.com/brianjohnson/alfred-repos-next/master/demo.gif
 [docopt]: http://docopt.org/
-[gh-releases]: https://github.com/deanishe/alfred-repos/releases/latest
+[gh-releases]: https://github.com/brianjohnson/alfred-repos-next/releases/latest
 [git]: http://git-scm.com/downloads/logos
 [jlong]: http://twitter.com/jasonlong
 [mit]: http://opensource.org/licenses/MIT
-[packal]: http://www.packal.org/workflow/git-repos
-[v2.1.2]: https://github.com/deanishe/alfred-repos/releases/tag/v2.1.2
-[v1.7]: https://github.com/deanishe/alfred-repos/releases/tag/v1.7
