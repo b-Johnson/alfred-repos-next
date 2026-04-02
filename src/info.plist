@@ -71,6 +71,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>A1B2C3D4-E5F6-7890-ABCD-EF1234567890</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>71820CCE-FF52-4077-B790-ACA80D174C54</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>CB04399E-A00E-40F1-8753-994DF261B93C</key>
 		<array>
 			<dict>
@@ -339,6 +352,37 @@ variables={allvars}</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>0</integer>
+				<key>hotmod</key>
+				<integer>0</integer>
+				<key>hotstring</key>
+				<string></string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedbundleid</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>A1B2C3D4-E5F6-7890-ABCD-EF1234567890</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string>Browse, search and open Git repositories from within Alfred.
@@ -361,6 +405,16 @@ Usage
 - `reposettings` — Open `settings.json` in default JSON editor
 - `reposupdate` — Force workflow to update its cached list of repositories. (By default, the list will only be updated every 3 hours.)
 - `reposhelp` — Open this file in your browser
+
+
+Hotkeys
+-------
+
+Three hotkeys are available (unassigned by default — set them in Alfred Preferences → Workflows):
+
+- **Search hotkey** — Opens the repos search directly in Alfred
+- **Settings hotkey** — Opens `settings.json` in your default editor
+- **Update hotkey** — Forces a refresh of the repository cache
 
 
 Configuration
@@ -392,7 +446,7 @@ Use the `reposhelp` command to see the help file.</string>
 			<key>note</key>
 			<string>Open repo in specified app</string>
 			<key>xpos</key>
-			<integer>300</integer>
+			<integer>480</integer>
 			<key>ypos</key>
 			<integer>30</integer>
 		</dict>
@@ -417,6 +471,15 @@ Use the `reposhelp` command to see the help file.</string>
 			<key>note</key>
 			<string>View/filter git repos</string>
 			<key>xpos</key>
+			<integer>220</integer>
+			<key>ypos</key>
+			<integer>30</integer>
+		</dict>
+		<key>A1B2C3D4-E5F6-7890-ABCD-EF1234567890</key>
+		<dict>
+			<key>note</key>
+			<string>Hotkey — set your shortcut in Alfred</string>
+			<key>xpos</key>
 			<integer>40</integer>
 			<key>ypos</key>
 			<integer>30</integer>
@@ -424,7 +487,7 @@ Use the `reposhelp` command to see the help file.</string>
 		<key>CB04399E-A00E-40F1-8753-994DF261B93C</key>
 		<dict>
 			<key>xpos</key>
-			<integer>210</integer>
+			<integer>390</integer>
 			<key>ypos</key>
 			<integer>60</integer>
 		</dict>
@@ -433,7 +496,7 @@ Use the `reposhelp` command to see the help file.</string>
 			<key>note</key>
 			<string>Show error message</string>
 			<key>xpos</key>
-			<integer>480</integer>
+			<integer>660</integer>
 			<key>ypos</key>
 			<integer>30</integer>
 		</dict>
